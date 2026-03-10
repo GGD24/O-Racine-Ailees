@@ -10,69 +10,70 @@
     <style>
         :root {
             --bg-color: #F9F7F2;
-            --primary-color: #6B705C; /* Vert sauge profond */
-            --accent-color: #B7B7A4; /* Beige terreux */
+            --primary-color: #6B705C;
+            --accent-color: #B7B7A4;
             --text-dark: #3F4238;
             --white: #ffffff;
         }
 
         * { box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
+        html, body { 
             margin: 0; 
+            padding: 0;
             background-color: var(--bg-color); 
             color: var(--text-dark);
             line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
 
-        /* Header style Dribbble */
         header { 
             padding: 20px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(249, 247, 242, 0.9);
+            background: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            border-bottom: 1px solid rgba(107, 112, 92, 0.1);
         }
+        
         .logo { font-size: 1.5rem; color: var(--primary-color); letter-spacing: 2px; text-decoration: none; font-weight: bold; }
         
-        /* Hero Section */
         .hero { 
             display: flex; 
             align-items: center; 
             min-height: 100vh; 
-            padding: 120px 10% 60px 10%;
+            padding: 100px 10% 0 10%;
             background: linear-gradient(135deg, #F3F1EB 0%, #EAE7DE 100%);
-            overflow: hidden;
             position: relative;
         }
+
         .hero-text { flex: 1; z-index: 2; }
         .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--primary-color); }
         .hero-text p { font-size: 1.2rem; margin-bottom: 30px; max-width: 500px; }
 
         .hero-image { flex: 1; display: flex; justify-content: center; position: relative; }
         .blob {
-            width: 400px; height: 400px;
+            width: 450px; height: 450px;
             background: var(--accent-color);
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             overflow: hidden;
             box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
         }
-        .blob img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); }
+        .blob img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Boutons arrondis type Divi */
         .btn { 
             padding: 15px 35px; 
             border-radius: 50px; 
             text-decoration: none; 
             font-weight: 600; 
-            transition: all 0.3s ease;
+            transition: 0.3s;
             display: inline-block;
             cursor: pointer;
             border: none;
@@ -80,43 +81,29 @@
         .btn-primary { background: var(--primary-color); color: var(--white); border: 1px solid var(--primary-color); }
         .btn-primary:hover { background: transparent; color: var(--primary-color); }
 
-        /* Services */
         .services { padding: 100px 10%; text-align: center; }
-        .services h2 { font-size: 2.5rem; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
         
         .card { 
             background: var(--white); 
             padding: 40px; 
             border-radius: 30px; 
-            transition: transform 0.3s ease;
             text-align: left;
             border: 1px solid rgba(0,0,0,0.03);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
 
-        /* Contact Section */
         .contact { background: var(--primary-color); color: var(--white); padding: 80px 10%; border-radius: 50px 50px 0 0; text-align: center; }
-        .contact h2 { font-size: 3rem; margin-bottom: 20px; }
-        .contact p { margin-bottom: 40px; opacity: 0.9; }
-
-        /* Personnalisation du badge Calendly */
-        .calendly-badge-widget .calendly-badge-content {
-            background-color: var(--primary-color) !important;
-        }
 
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 150px; }
+            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
             .hero-text h1 { font-size: 2.8rem; }
-            .blob { width: 280px; height: 280px; margin-top: 40px; }
-            header { padding: 15px 5%; }
+            .blob { width: 300px; height: 300px; margin-top: 30px; }
         }
     </style>
 </head>
 <body>
 
-<header>
+<header id="top">
     <a href="#" class="logo">&Ocirc; RACINES AIL&Eacute;ES</a>
     <a href="https://calendly.com/VOTRE_LIEN_CALENDLY" class="btn btn-primary" style="padding: 10px 25px;">Prendre RDV</a>
 </header>
@@ -137,40 +124,35 @@
 <section id="services" class="services">
     <h2>Mes Pratiques</h2>
     <div class="grid">
-        <div class="card">
-            <span class="icon">🌿</span>
-            <h3>Soins &Eacute;nerg&eacute;tiques</h3>
-            <p>R&eacute;&eacute;quilibrage des centres &eacute;nerg&eacute;tiques pour lib&eacute;rer les tensions et retrouver une circulation fluide de votre vitalit&eacute;.</p>
-        </div>
-        <div class="card">
-            <span class="icon">✨</span>
-            <h3>Accompagnement Holistique</h3>
-            <p>Un cheminement personnalis&eacute; pour comprendre vos blocages et transformer vos &eacute;preuves en forces de croissance.</p>
-        </div>
-        <div class="card">
-            <span class="icon">🌳</span>
-            <h3>Ateliers Nature</h3>
-            <p>Se reconnecter &agrave; la terre pour mieux s'&eacute;lever. Des sessions en ext&eacute;rieur pour pratiquer l'ancrage en pleine conscience.</p>
-        </div>
+        <div class="card"><h3>Soins &Eacute;nerg&eacute;tiques</h3><p>Lib&eacute;rez les tensions et retrouvez votre vitalit&eacute;.</p></div>
+        <div class="card"><h3>Accompagnement Holistique</h3><p>Transformez vos &eacute;preuves en forces de croissance.</p></div>
+        <div class="card"><h3>Ateliers Nature</h3><p>Pratiquez l'ancrage en pleine conscience.</p></div>
     </div>
 </section>
 
 <section id="contact" class="contact">
     <h2>Pr&ecirc;t(e) pour le voyage ?</h2>
-    <p>Chaque s&eacute;ance est une &eacute;tape vers votre propre libert&eacute; int&eacute;rieure.</p>
     <a href="https://calendly.com/VOTRE_LIEN_CALENDLY" class="btn" style="background: white; color: var(--primary-color);">Voir mes disponibilit&eacute;s</a>
-    <div style="margin-top: 40px; font-size: 0.9rem; opacity: 0.7;">
-        Retrouvez-moi aussi sur <a href="https://www.facebook.com/oracinesailees/" style="color: white;">Facebook</a>
-    </div>
 </section>
 
 <footer style="text-align: center; padding: 20px; font-size: 0.8rem; background: var(--primary-color); color: white; opacity: 0.6;">
-    &copy; 2026 &Ocirc; Racines Ail&eacute;es. Ancrage et S&eacute;r&eacute;nit&eacute;.
+    &copy; 2026 &Ocirc; Racines Ail&eacute;es.
 </footer>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script type="text/javascript">
+    // 1. Force le scroll en haut dès le chargement
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    };
+
     window.onload = function() {
+        // 2. S'assure encore une fois d'être en haut
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 1);
+
+        // 3. Initialise Calendly
         Calendly.initBadgeWidget({ 
             url: 'https://calendly.com/VOTRE_LIEN_CALENDLY', 
             text: 'R&eacute;server un soin', 
